@@ -40,23 +40,18 @@
 
 \begin{document}
 
-\title{Stochastic Number Generation with Few Inputs
-\bigskip}
-\bigskip
+\title{Stochastic Number Generation with Few Inputs}
 
-\author{\IEEEauthorblockN{Ritsuko Muguruma
-}
+\author{\IEEEauthorblockN{Ritsuko Muguruma}
 \IEEEauthorblockA{Graduate School of Information Science and Engineering
 \\Ritsumeikan University, Shiga, Japan
-\\Email: csharp@ngc.is.ritumei.ac.jp
+\\Email: csharp@ngc.is.ritumei.ac.jp}
 \and
-\IEEEauthorblockN{Shigeru Yamashita
-}
+\IEEEauthorblockN{Shigeru Yamashita}
 \IEEEauthorblockA{College of Information Science and Engineering
 \\Ritsumeikan University, Shiga, Japan
-\\Email: ger@cs.ritsumei.ac.jp
+\\Email: ger@cs.ritsumei.ac.jp}
 }
-}}
 
 \maketitle
 
@@ -145,6 +140,7 @@ radioactive decay, and Brownian motion, etc. Indeed, how to
 produce a random bit-stream with a “target” probability should
 be an important issue in SC circuit design methodology in
 many aspects.
+
 \par
 In this paper, we propose a new method to design a circuit
 whose output becomes one with a certain desired probability.
@@ -153,17 +149,8 @@ method needs much fewer number of auxiliary inputs. More
 concretely, if we use $k$ auxiliary inputs, our method can
 generate multiple random bit-streams that becomes one with
 any probability of the form $l/2^{\frac{k(k+1)}{2}}$
-with an arbitrary integer
-$l (0\leq l\leq2^{\frac{k(k+1)}{2}})$ whereas the previous method used in [15]
-needs $2^{\frac{k(k+1)}{2}}$ auxiliary inputs which is quadratically more
-than our method. The previous method assumes all the random
-inputs become one with the same probability $\frac{1}
-{2}$. Our idea is 
-to use different kinds of random inputs whose probabilities
-to be one are $\frac{1}{2},\frac{1}{2^{2}},...,\frac{1}{2^{k}}$. Our proposed method can be
-directly used to derive a smaller SC circuit to produce some
-probabilities that are used in the general SC circuit synthesis
-method proposed in \cite{fifteen}.
+with an arbitrary integer $l (0\leq l\leq2^{\frac{k(k+1)}{2}})$ whereas the previous method used in [15] needs $2^{\frac{k(k+1)}{2}}$ auxiliary inputs which is quadratically more than our method. The previous method assumes all the random inputs become one with the same probability $\frac{1} {2}$. Our idea is to use different kinds of random inputs whose probabilities to be one are $\frac{1}{2},\frac{1}{2^{2}},...,\frac{1}{2^{k}}$. Our proposed method can be directly used to derive a smaller SC circuit to produce some probabilities that are used in the general SC circuit synthesis method proposed in \cite{fifteen}.
+
 \par
 Note that our method as well as the previous method used
 in \cite{fifteen} can produce many different probability at the same time
@@ -283,33 +270,35 @@ The method in \cite{fifteen} first transforms a given multi-linear
 function
 $f(x_1,x_2,...,x_n)$ into the following form called a binary combination polynomial (BCP): \\ $f(x_1,x_2,...,x_n)$ \\ 
   \par $=$ \hspace{4mm}  $\sum_{a_1, a_2,...,a_n\epsilon \{{0,1}\}^{n}}h(a_1, a_2,...,a_n)\prod_{j=1}^{n}x_j^{a_j}(1-x_j)^{1-a_j}$, \\ where each $h(a_1,a_2,...,a_n)$ corresponds to a real number that is equal to the output value of $f(a_1,a_2,...,a_n)$. 
-  \par 
-  The framework of the method in \cite{fifteen} to generate an SC circuit to implement a BCP is to design a circuit as shown in
 
-\begin{figure*}[t]       
+\begin{figure*}[ht]       
     \mbox{\begin{minipage}[b]{0.32\textwidth}
-        \includegraphics[width=\linewidth]{fig1.png}
+        \includegraphics[width=15em]{fig1.png}
         \caption{ Stochastic Number Generator}
     \end{minipage}}   
-    \hspace{10px}
-    \mbox{\begin{minipage}[b]{0.32\textwidth}
-        \includegraphics[width=\linewidth]{fig2.png}
+    \hspace{0px}
+    \mbox{\begin{minipage}[b]{0.33\textwidth}
+        \includegraphics[width=15em]{fig2.png}
         \caption{ An AND gate as a stochastic multiplier}
     \end{minipage}}
-    \hspace{10px}
-    \mbox{\begin{minipage}[b]{0.32\textwidth}
-        \includegraphics[width=\linewidth]{fig3.png}
+    \hspace{0px}
+    \mbox{\begin{minipage}[b]{0.33\textwidth}
+        \includegraphics[width=15em]{fig3.png}
         \caption{ Multiplexer used as a scaled stochastic adder}
     \end{minipage}}
 \end{figure*}
 
 \begin{figure}[ht]
+\begin{center}
     \setcounter{figure}{3}
-    \includegraphics[width=.45\textwidth]{fig4.png}
+    \includegraphics[width=.4\textwidth]{fig4.png}
     \caption{ An SC Circuit by the Method \cite{fifteen}.}
+\end{center}
 \end{figure}
-Fig. 4. More concretely, in the framework, they consider the following problem
-\fbox {\parbox{\linewidth}{%
+
+The framework of the method in \cite{fifteen} to generate an SC circuit to implement a BCP is to design a circuit as shown in Fig. 4. More concretely, in the framework, they consider the following problem.
+\smallskip
+\fbox {\parbox{0.95\linewidth}{%
        \textbf {SC Circuit Design Problem.} \\
 We are given a BCP $f(x_1, x_2, \cdots, x_n)$. Our task is to
 design a Boolean function (circuit) $F(X_1, X_2,\cdots, X_n)$
@@ -411,9 +400,10 @@ input stochastic numbers $(Y_i (1 \leq i \leq m))$, a product term
 consisting of $(m - k)$ input variables can be a stochastic
 number whose value is $2^k$ because the product term does not
 have $k$ input variables; it contains $2^k$ minterms.
+\smallskip
 
-\begin{table*}[ht]
-    \mbox{\begin{minipage}[b]{0.21\textwidth}
+\begin{table}[t]
+    \mbox{\begin{minipage}[b]{0.22\textwidth}
       \caption{COEFFICIENTS OF AN EXAMPLE BCP.}
     \begin{tabular}{c c |c}
     \hline
@@ -424,13 +414,35 @@ have $k$ input variables; it contains $2^k$ minterms.
       1 & 0 & $h(1, 1) = \frac{1}{8}$\\
       1 & 1 & $h(1, 1) = \frac{3}{8}$ \\ \hline
     \end{tabular}
+    \bigskip
+    \bigskip
+    \caption{THE GENERATED FUNCTION BY OUR METHOD.}
+    \begin{tabular}{c c |c c| c}
+    \hline
+     $X_1$ & $X_2$ & $Y_1$ & $Y_2$ &$F$\\ \hline
+        0 &0 &1 &1 &1\\ 
+        0 &0 &0 &1 &1\\ 
+        0 &0 &1 &0 &0\\ 
+        0 &0 &0 &0 &0\\  \hline
+        0 &1 &1 &1 &1\\ 
+        0 &1 &0 &1 &1\\ 
+        0 &1 &1 &0 &0\\ 
+        0 &1 &0 &0 &0\\  \hline
+        1 &0 &1 &1 &1\\ 
+        1 &0 &0 &1 &0\\ 
+        1 &0 &1 &0 &0\\ 
+        1 &0 &0 &0 &0\\  \hline
+        1 &1 &1 &1 &0\\ 
+        1 &1 &0 &1 &0\\ 
+        1 &1 &1 &0 &1\\ 
+        1 &1 &0 &0 &0\\  \hline
+    \end{tabular}
     \end{minipage}}   
-    \hspace{10px}
-    \mbox{\begin{minipage}[b]{0.21\textwidth}
+    \hspace{5px}
+    \mbox{\begin{minipage}[b]{0.22\textwidth}
         \caption{THE GENERATED FUNCTION BY THE METHOD [15].}
-    \begin{tabular}{c c |c c c | c} \hline
+        \begin{tabular}{c c |c c c | c} \hline
      $X_1$ & $X_2$ & $Y_1$ &$Y_2$ &$Y_3$ & $F$\\ \hline
-     
         0 &0 &1 &1 &1 &0\\ 
         0 &0 &1 &1 &0 &0\\ 
         0 &0 &1 &0 &1 &1\\ 
@@ -465,36 +477,7 @@ have $k$ input variables; it contains $2^k$ minterms.
         1 &1 &0 &0 &9 &0\\ \hline 
     \end{tabular}
     \end{minipage}}
-    
-    \mbox{\begin{minipage}[b]{0.21\textwidth}
-      \caption{THE GENERATED FUNCTION BY OUR METHOD.}
-    
-    \begin{tabular}{c c |c c| c}
-    \hline
-     $X_1$ & $X_2$ & $Y_1$ & $Y_2$ &$F$\\ \hline
-        0 &0 &1 &1 &1\\ 
-        0 &0 &0 &1 &1\\ 
-        0 &0 &1 &0 &0\\ 
-        0 &0 &0 &0 &0\\  \hline
-        0 &1 &1 &1 &1\\ 
-        0 &1 &0 &1 &1\\ 
-        0 &1 &1 &0 &0\\ 
-        0 &1 &0 &0 &0\\  \hline
-        1 &0 &1 &1 &1\\ 
-        1 &0 &0 &1 &0\\ 
-        1 &0 &1 &0 &0\\ 
-        1 &0 &0 &0 &0\\  \hline
-        1 &1 &1 &1 &0\\ 
-        1 &1 &0 &1 &0\\ 
-        1 &1 &1 &0 &1\\ 
-        1 &1 &0 &0 &0\\  \hline
-
-    \end{tabular}
-    \end{minipage}}
-    
-    
-  
-\end{table*}
+\end{table}
 %-------------------------------------------
 %-------------------------------------------
 %-------------------------------------------
@@ -608,8 +591,7 @@ uses k auxiliary inputs whose values are $\frac{1}{2},\frac{1}{2^2}, \cdots \fra
     \If {$i = 0$}
     \State \Return a null string
     \Else  \State $B \gets 2^i-1$
-    \State $a_1$ and $a_2$ \gets Chose two integers $a_1$ and $a_2$ from $\left \{ 0,1\cdots 2^\frac{i(i-1)}{2} \right \}$
- such that $l = a_1 + a_2 \times B$
+    \State {$a_1$ and $a_2$ \gets Chose two integers $a_1$ and $a_2$ from \linebreak\{ 0,1,\cdots ,$2^\frac{i(i-1)}{2}$ \} such that $l = a_1 + a_2 \times B$ }
     \If{$a_1 = 0$ and $a_2 = 0$}
     \State \Return a null string
     \EndIf
